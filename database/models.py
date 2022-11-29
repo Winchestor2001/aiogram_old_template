@@ -1,0 +1,9 @@
+from peewee import *
+from data.config import DB_NAME, DB_USER, DB_HOST, DB_PASSWORD, DB_PORT
+
+db = PostgresqlDatabase(DB_NAME, user=DB_USER, host=DB_HOST, password=DB_PASSWORD, port=DB_PORT)
+
+
+class BaseModel(Model):
+    class Meta:
+        database = db
