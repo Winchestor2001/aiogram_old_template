@@ -7,3 +7,11 @@ db = PostgresqlDatabase(DB_NAME, user=DB_USER, host=DB_HOST, password=DB_PASSWOR
 class BaseModel(Model):
     class Meta:
         database = db
+
+        
+class Users(BaseModel):
+    user_id = BigIntegerField(primary_key=True)
+    username = CharField(max_length=200, null=True)
+
+    class Meta:
+        db_name = 'users'
